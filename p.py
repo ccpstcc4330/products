@@ -12,4 +12,7 @@ while True:
 	#又或者直接縮成products.append([name, price])
 print(products)
 
-products[0][0] #大清單的第0格，小清單的第0格
+# products[0][0] #大清單的第0格，小清單的第0格
+
+for p in products:
+	print(p[0], '的價格是$', p[1])
