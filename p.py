@@ -1,4 +1,14 @@
+#讀取檔案
 products = []
+with open('products.csv', 'r', encoding = 'utf-8') as f:
+	for line in f:
+		if '商品, 價格' in line:
+			continue #繼續
+		name , price = line.strip().split(',') #先把換行符號去除，再用逗點當作切割的標準
+		products.append([name, price])
+print(products)
+
+#讓使用者輸入
 while True:
 	name = input('請輸入商品名稱:')
 	if name == 'q':
@@ -15,10 +25,11 @@ print(products)
 
 # products[0][0] #大清單的第0格，小清單的第0格
 
+#印出所有購買紀錄
 for p in products:
 	print(p[0], '的價格是$', p[1])
 
-#把使用者資料存住
+#寫入檔案
 with open('products.csv', 'w', encoding = 'utf-8') as f: 
 #寫入模式，所以沒有products.txt也沒關係
 # 修正亂碼問題，要加encoding = 'utf-8'，讓語言可被讀取
